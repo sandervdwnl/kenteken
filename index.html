@@ -42,7 +42,8 @@
         // alert(response.merk);
         $('#merk').val(response.merk);
         $('#model').val(response.handelsbenaming);
-        $('#bouwjaar').val(response.datum_eerste_toelating);
+        var bouwjaar = (response.datum_eerste_toelating).substring(0, 4);
+        $('#bouwjaar').val(bouwjaar);
       });
     }
   </script>
