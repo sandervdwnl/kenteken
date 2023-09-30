@@ -2,12 +2,13 @@
 
 <head>
   <title>API-request met jQuery</title>
+  <script src="js/ajax.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
 
-  <h1>AJAX</h1>
+  <h1>Haal je voertuiggegevens op.</h1>
   <input type="text" name="kenteken" id="kenteken" pattern="[a-zA-Z0-9]{6}" minlength="6">
   <button onclick="getInfo();">Haal op</button><br>
   <form action="">
@@ -18,37 +19,6 @@
     <label for="Bouwjaar">Bouwjaar</label><br>
     <input type="text" name="bouwjaar" id="bouwjaar">
   </form>
-
-  <script>
-    function getInfo() {
-      var kenteken = document.getElementById("kenteken").value;
-      kenteken = kenteken.toUpperCase();
-      if ( kenteken.length !== 6 ) {
-        alert( 'De invoer is ongeldig' );
-        return false;
-      }
-      // var kenteken = "0001ES";
-      console.log(kenteken);
-      $.ajax({
-        url: "https://opendata.rdw.nl/resource/qyrd-w56j.json?kenteken=" + kenteken,
-        type: "GET",
-        dataType: 'json',
-        data: {
-          "$limit": 5000,
-          "$$app_token": "NnFU01CF99CsjkG7hGMIWIqiC"
-        }
-      }).done(function (data) {
-        var response = data[0];
-        // alert(response.merk);
-        $('#merk').val(response.merk);
-        $('#model').val(response.handelsbenaming);
-        var bouwjaar = (response.datum_eerste_toelating).substring(0, 4);
-        $('#bouwjaar').val(bouwjaar);
-      });
-    }
-  </script>
-
-
 </body>
 
 </html>
