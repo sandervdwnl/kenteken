@@ -24,7 +24,10 @@ function getInfo() {
             var bouwjaar = (response.datum_eerste_toelating).substring(0, 4);
             $('#bouwjaar').val(bouwjaar);
         } else {
-            alert('Geen resultaat gevonden. Check de invoer');
+            $('#response').text('Geen resultaat gevonden. Check het ingevoerde kenteken. of probeer het later nog eens.');
         }        
-    }); 
+    })
+    .failed(function (data) {
+        $('#response').text('Er is een fout opgetreden. probeer het later nog eens.')
+    });
 }

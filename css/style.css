@@ -1,3 +1,10 @@
+#container {
+    padding-left: 10px;
+    padding-right: 10px;
+     padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 #inner-kenteken-wrapper::before {
     content: "NL";
     background: #0441de;
@@ -33,4 +40,8 @@
 
 #button {
     margin: 3px 10px 0px 10px;
+}
+
+form {
+    width: 50%;
 }
