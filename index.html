@@ -12,15 +12,29 @@
 
 <body>
   <h1>Haal je voertuiggegevens op.</h1>
-  <input type="text" name="kenteken" id="kenteken" pattern="[a-zA-Z0-9]{6}" minlength="6">
-  <button onclick="getInfo();">Haal op</button><br>
+  <div class="outer-kenteken-wrapper">
+    <div id="inner-kenteken-wrapper">
+      <input type="text" name="kenteken" id="kenteken" pattern="[a-zA-Z0-9]{6}" minlength="6">
+    </div>
+    <button id="button" onclick="getInfo();">Haal op</button><br>
+  </div>
+
   <form action="">
-    <label for="merk">Merk</label><br>
-    <input type="text" name="merk" id="merk"><br>
-    <label for="model">Model</label><br>
-    <input type="text" name="model" id="model"><br>
-    <label for="Bouwjaar">Bouwjaar</label><br>
-    <input type="text" name="bouwjaar" id="bouwjaar">
+    <div class="row">
+      <div class="six-columns">
+        <label for="merk">Merk</label>
+        <input class="u-full-width" type="text" name="merk" id="merk">
+      </div>
+      <div class="six-columns">
+        <label for="model">Model</label>
+        <input class="u-full-width" type="text" name="model" id="model">
+      </div>
+      <div class="six-columns"></div>
+      <label for="Bouwjaar">Bouwjaar</label>
+      <input class="u-full-width" type="text" name="bouwjaar" id="bouwjaar">
+    </div>
+    </div>
   </form>
 </body>
+
 </html>
